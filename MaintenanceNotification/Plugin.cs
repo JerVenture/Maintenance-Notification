@@ -10,6 +10,8 @@ using Dalamud.Game.Text.SeStringHandling;
 using System;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.ManagedFontAtlas;
+using FFXIVClientStructs.FFXIV.Client.UI;
+using FFXIVClientStructs.FFXIV.Component.GUI;
 
 namespace MaintenanceNotification;
 
@@ -59,6 +61,12 @@ public sealed class Plugin : IDalamudPlugin
         {
             notificationWindow.IsOpen = true;
             notificationWindow.MaintenanceMessage = message.ToString();
+
+            unsafe
+            {
+                AtkValue value = new AtkValue();
+                UIModule.Instance()->GetRaptureAtkModule()->PlaySoundEffect(&value, 6);
+            }
         }
     }
 }
