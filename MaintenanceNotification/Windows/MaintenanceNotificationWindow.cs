@@ -3,6 +3,8 @@ using Dalamud.Bindings.ImGui;
 using Dalamud.Plugin.Services;
 using System.Numerics;
 using Dalamud.Interface.ManagedFontAtlas;
+using Lumina.Data.Parsing.Layer;
+using Lumina.Data.Parsing.Scd;
 
 namespace MaintenanceNotification.Windows;
 
@@ -17,6 +19,7 @@ public class MaintenanceNotificationWindow : Window
         SizeCondition = ImGuiCond.Always;
         PositionCondition = ImGuiCond.Always;
         var scale = ImGui.GetIO().FontGlobalScale;
+        OnOpenSfxId = 42;
 
         fontAtlas = Plugin.PluginInterface.UiBuilder.CreateFontAtlas(FontAtlasAutoRebuildMode.Async, false);
         maintenanceFontHandle = fontAtlas.NewDelegateFontHandle(e => e.OnPreBuild(

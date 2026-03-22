@@ -65,7 +65,7 @@ public sealed class Plugin : IDalamudPlugin
             unsafe
             {
                 AtkValue value = new AtkValue();
-                UIModule.Instance()->GetRaptureAtkModule()->PlaySoundEffect(&value, 6);
+                // UIModule.Instance()->GetRaptureAtkModule()->PlaySoundEffect(&value, 7);
             }
         }
     }
