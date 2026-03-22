@@ -61,12 +61,6 @@ public sealed class Plugin : IDalamudPlugin
         {
             notificationWindow.IsOpen = true;
             notificationWindow.MaintenanceMessage = message.ToString();
-
-            unsafe
-            {
-                AtkValue value = new AtkValue();
-                // UIModule.Instance()->GetRaptureAtkModule()->PlaySoundEffect(&value, 7);
-            }
         }
     }
 }
