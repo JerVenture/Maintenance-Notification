@@ -7,6 +7,7 @@ using Dalamud.Plugin.Services;
 using MaintenanceNotification.Windows;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using System;
 
 namespace MaintenanceNotification;
 
@@ -32,6 +33,8 @@ public sealed class Plugin : IDalamudPlugin
         notificationWindow = new MaintenanceNotificationWindow(Framework);
         WindowSystem.AddWindow(notificationWindow);
 
+        PluginInterface.UiBuilder.OpenMainUi += () => notificationWindow.IsOpen = true;
+
         Log.Information("MaintenanceNotification Was loaded!");
     }
 
@@ -39,13 +42,16 @@ public sealed class Plugin : IDalamudPlugin
     {
         PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
         ChatGui.ChatMessage -= OnChatMessage;
+
+        PluginInterface.UiBuilder.OpenMainUi -= () => notificationWindow.IsOpen = true;
     }
 
     private void OnChatMessage(XivChatType type, int timestamp, ref SeString sender, ref SeString message, ref bool isHandled)
     {
-        if (type == XivChatType.Notice && message.ToString().Contains("Maintenance will be performed"))
+        if (type == XivChatType.Notice && message.ToString().Contains("Maintenance will be performed", StringComparison.OrdinalIgnoreCase))
         {
             notificationWindow.IsOpen = true;
+            notificationWindow.MaintenanceMessage = message.ToString();
         }
     }
 }

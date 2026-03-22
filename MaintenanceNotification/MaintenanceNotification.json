@@ -1,12 +1,15 @@
 {
-  "Author": "your name here",
-  "Name": "Sample Plugin",
-  "Punchline": "A short one-liner that shows up in /xlplugins.",
-  "Description": "A description that shows up in /xlplugins. List any major slash-command(s).",
+  "Author": "JerVenture",
+  "Name": "Maintenance Notification",
+  "Punchline": "A plugin that will populate a window whenever maintenance is scheduled, advising you that there is maintenance",
+  "Description": "This plugin will detect whenever FFXIV has maintenance scheduled, and it will cause a large window with large text advising the user of the maintenance and the day and time.",
   "ApplicableVersion": "any",
   "Tags": [
-    "sample",
-    "plugin",
-    "goats"
+    "Maintenance",
+    "Notification",
+    "Maintenance Notification",
+    "MaintenanceNotification",
+    "alerts",
+    "Maintenance alerts"
   ]
 }
