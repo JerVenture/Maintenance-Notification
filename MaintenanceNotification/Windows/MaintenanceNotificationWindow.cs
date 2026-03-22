@@ -17,8 +17,6 @@ public class MaintenanceNotificationWindow : Window
         SizeCondition = ImGuiCond.Always;
         PositionCondition = ImGuiCond.Always;
         var scale = ImGui.GetIO().FontGlobalScale;
-        var viewportSize = ImGui.GetMainViewport().Size;
-        Size = new Vector2(800, 500);
 
         fontAtlas = Plugin.PluginInterface.UiBuilder.CreateFontAtlas(FontAtlasAutoRebuildMode.Async, false);
         maintenanceFontHandle = fontAtlas.NewDelegateFontHandle(e => e.OnPreBuild(
@@ -28,6 +26,8 @@ public class MaintenanceNotificationWindow : Window
 
         public override void PreDraw()
         {
+            var viewportSize = ImGui.GetMainViewport().Size;
+            Size = new Vector2(viewportSize.X * 0.6f, viewportSize.Y * 0.6f);
             Position = ImGui.GetMainViewport().GetCenter() - ((Size ?? new Vector2(800, 500)) / 2);
         }  
     
