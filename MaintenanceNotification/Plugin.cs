@@ -8,6 +8,8 @@ using MaintenanceNotification.Windows;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using System;
+using Dalamud.Bindings.ImGui;
+using Dalamud.Interface.ManagedFontAtlas;
 
 namespace MaintenanceNotification;
 
@@ -23,6 +25,7 @@ public sealed class Plugin : IDalamudPlugin
 
     public readonly WindowSystem WindowSystem = new("MaintenanceNotification");
     private MaintenanceNotificationWindow notificationWindow;
+
 
     public Plugin()
     {
@@ -44,7 +47,11 @@ public sealed class Plugin : IDalamudPlugin
         ChatGui.ChatMessage -= OnChatMessage;
 
         PluginInterface.UiBuilder.OpenMainUi -= () => notificationWindow.IsOpen = true;
+
+        notificationWindow.dispose();
     }
+
+
 
     private void OnChatMessage(XivChatType type, int timestamp, ref SeString sender, ref SeString message, ref bool isHandled)
     {
