@@ -1,18 +1,23 @@
-{
+[
+  {
   "Author": "JerVenture",
   "Name": "Maintenance Notification",
+  "InternalName": "Maintenance Notification",
   "Punchline": "A plugin that will populate a window whenever maintenance is scheduled, advising you that there is maintenance",
   "Description": "This plugin will detect whenever FFXIV has maintenance scheduled, and it will cause a large window with large text advising the user of the maintenance and the day and time.",
+  "AssemblyVersion": "0.1",
+  "TestingAssemblyaVersion": "0.1",
+  "RepoUrl": "https://github.com/JerVenture/Maintenance-Notification",
   "ApplicableVersion": "any",
-  "Tags": [
-    "Maintenance",
-    "Notification",
-    "Maintenance Notification",
-    "MaintenanceNotification",
-    "alerts",
-    "Maintenance alerts"
-  ],
+  "DalamudApiLevel": 14,
+  "IsHide": "False",
+  "IsTestingExclusive": "False",
+  "DownloadCount": 0,
+  "LastUpdate": 0,
+  "LoadPriority": 0,
+  "Tags": [ "Maintenance", "Notification", "Maintenance Notification", "MaintenanceNotification", "alerts", "Maintenance alerts" ],
   "DownloadLinkInstall": "https://github.com/JerVenture/Maintenance-Notification/releases/download/V0.1/MaintenanceNotification.zip",
   "DownloadLinkUpdate": "https://github.com/JerVenture/Maintenance-Notification/releases/download/V0.1/MaintenanceNotification.zip",
   "DownloadLinkTesting": "https://github.com/JerVenture/Maintenance-Notification/releases/download/V0.1/MaintenanceNotification.zip"
-}
+  }
+]
