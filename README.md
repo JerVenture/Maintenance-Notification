@@ -9,4 +9,4 @@ So, as for right now, the plugins is pretty barebones with no config options. In
 
 ## How to install?
 Put this link into your custom repos in dalamud:
-https://raw.githubusercontent.com/JerVenture/Maintenance-Notification/master/repo.json
+https://raw.githubusercontent.com/JerVenture/Dalamud-Plugins/refs/heads/main/repo.json
