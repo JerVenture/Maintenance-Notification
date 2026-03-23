@@ -6,3 +6,7 @@ The way this plugin works is very simple. Whenever there is a notice in chat fro
 
 ## Planned Features
 So, as for right now, the plugins is pretty barebones with no config options. In the near future, I plan on implementing a couple options to toggle different features for the plugin. You will be able to toggle the flashing and the sound effect. I will come up with more features in time and will update this as needed, but the primary purpose of the function has already been achieved.
+
+## How to install?
+Put this link into your custom repos in dalamud:
+https://raw.githubusercontent.com/JerVenture/Maintenance-Notification/master/repo.json
