@@ -1,17 +1,11 @@
-﻿using Dalamud.Game.Command;
-using Dalamud.IoC;
+﻿using Dalamud.IoC;
 using Dalamud.Plugin;
-using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
 using MaintenanceNotification.Windows;
 using Dalamud.Game.Text;
-using Dalamud.Game.Text.SeStringHandling;
 using System;
-using Dalamud.Bindings.ImGui;
-using Dalamud.Interface.ManagedFontAtlas;
-using FFXIVClientStructs.FFXIV.Client.UI;
-using FFXIVClientStructs.FFXIV.Component.GUI;
+using Dalamud.Game.Chat;
 
 namespace MaintenanceNotification;
 
@@ -55,12 +49,12 @@ public sealed class Plugin : IDalamudPlugin
 
 
 
-    private void OnChatMessage(XivChatType type, int timestamp, ref SeString sender, ref SeString message, ref bool isHandled)
+    private void OnChatMessage(IHandleableChatMessage message)
     {
-        if (type == XivChatType.Notice && message.ToString().Contains("Maintenance will be performed", StringComparison.OrdinalIgnoreCase))
+        if (message.LogKind == XivChatType.Notice && message.Message.ToString().Contains("Maintenance will be performed", StringComparison.OrdinalIgnoreCase))
         {
             notificationWindow.IsOpen = true;
-            notificationWindow.MaintenanceMessage = message.ToString();
+            notificationWindow.MaintenanceMessage = message.Message.ToString();
         }
     }
 }
